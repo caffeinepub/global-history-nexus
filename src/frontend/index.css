@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces[SOFT,WONK,ital,opsz,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Global History Nexus - Deep Archaeology Dark Theme */
+    --background: 0.08 0.01 260;
+    --foreground: 0.92 0.02 85;
+    --card: 0.11 0.015 260;
+    --card-foreground: 0.92 0.02 85;
+    --popover: 0.13 0.02 255;
+    --popover-foreground: 0.92 0.02 85;
+    --primary: 0.72 0.18 45;
+    --primary-foreground: 0.08 0.01 260;
+    --secondary: 0.16 0.025 255;
+    --secondary-foreground: 0.85 0.02 85;
+    --muted: 0.15 0.02 255;
+    --muted-foreground: 0.55 0.025 255;
+    --accent: 0.72 0.18 45;
+    --accent-foreground: 0.08 0.01 260;
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.22 0.025 255;
+    --input: 0.18 0.02 255;
+    --ring: 0.72 0.18 45;
+
+    /* Category colors - raw L C H */
+    --cat-political: 0.6 0.2 250;
+    --cat-war: 0.6 0.22 20;
+    --cat-science: 0.65 0.18 155;
+    --cat-culture: 0.72 0.18 75;
+    --cat-exploration: 0.68 0.2 45;
+    --cat-economics: 0.78 0.18 95;
+    --cat-religion: 0.65 0.2 310;
+
+    /* Era zone colors */
+    --era-ancient: 0.14 0.04 310;
+    --era-medieval: 0.12 0.04 195;
+    --era-early-modern: 0.13 0.04 255;
+    --era-modern: 0.14 0.03 235;
+
+    /* Chart colors */
+    --chart-1: 0.72 0.18 45;
+    --chart-2: 0.6 0.2 250;
+    --chart-3: 0.65 0.18 155;
+    --chart-4: 0.65 0.2 310;
+    --chart-5: 0.6 0.22 20;
+
+    /* Sidebar */
+    --sidebar: 0.09 0.015 260;
+    --sidebar-foreground: 0.92 0.02 85;
+    --sidebar-primary: 0.72 0.18 45;
+    --sidebar-primary-foreground: 0.08 0.01 260;
+    --sidebar-accent: 0.16 0.025 255;
+    --sidebar-accent-foreground: 0.85 0.02 85;
+    --sidebar-border: 0.22 0.025 255;
+    --sidebar-ring: 0.72 0.18 45;
+
+    /* Glow effects */
+    --glow-primary: oklch(0.72 0.18 45 / 0.3);
+    --glow-blue: oklch(0.6 0.2 250 / 0.3);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Cabinet Grotesk", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.1 0.01 260);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.28 0.03 255);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.72 0.18 45 / 0.6);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+
+  .font-serif-display {
+    font-family: "Fraunces", serif;
+  }
+
+  .font-mono {
+    font-family: "Geist Mono", monospace;
+  }
+
+  /* Glass card effect */
+  .glass {
+    background: oklch(0.12 0.02 255 / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.28 0.03 255 / 0.5);
+  }
+
+  .glass-strong {
+    background: oklch(0.14 0.025 255 / 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid oklch(0.3 0.04 255 / 0.6);
+  }
+
+  /* Glow text effects */
+  .glow-gold {
+    text-shadow: 0 0 20px oklch(0.72 0.18 45 / 0.5);
+  }
+
+  .glow-blue {
+    text-shadow: 0 0 20px oklch(0.6 0.2 250 / 0.5);
+  }
+
+  /* Category border colors */
+  .border-l-political { border-left-color: oklch(0.6 0.2 250); }
+  .border-l-war { border-left-color: oklch(0.6 0.22 20); }
+  .border-l-science { border-left-color: oklch(0.65 0.18 155); }
+  .border-l-culture { border-left-color: oklch(0.72 0.18 75); }
+  .border-l-exploration { border-left-color: oklch(0.68 0.2 45); }
+  .border-l-economics { border-left-color: oklch(0.78 0.18 95); }
+  .border-l-religion { border-left-color: oklch(0.65 0.2 310); }
+
+  /* Noise texture overlay */
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  /* Timeline era zones */
+  .era-ancient { background: oklch(var(--era-ancient)); }
+  .era-medieval { background: oklch(var(--era-medieval)); }
+  .era-early-modern { background: oklch(var(--era-early-modern)); }
+  .era-modern { background: oklch(var(--era-modern)); }
+
+  /* Typing animation */
+  @keyframes typing-dot {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+
+  .typing-dot {
+    animation: typing-dot 1.2s ease-in-out infinite;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  /* Pulse glow for year markers */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 8px oklch(0.72 0.18 45 / 0.5), 0 0 0 1.5px oklch(0.82 0.12 50 / 0.4); }
+    50% { box-shadow: 0 0 22px oklch(0.72 0.18 45 / 0.9), 0 0 44px oklch(0.72 0.18 45 / 0.35), 0 0 0 1.5px oklch(0.92 0.1 52); }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 1.8s ease-in-out infinite;
+  }
+
+  /* Network node pulse */
+  @keyframes node-pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  /* Shimmer for skeletons */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      oklch(0.13 0.02 258) 0%,
+      oklch(0.13 0.02 258) 20%,
+      oklch(0.2 0.03 255) 40%,
+      oklch(0.22 0.035 253) 50%,
+      oklch(0.2 0.03 255) 60%,
+      oklch(0.13 0.02 258) 80%,
+      oklch(0.13 0.02 258) 100%
+    );
+    background-size: 300% 100%;
+    animation: shimmer 1.8s ease-in-out infinite;
+    border-radius: 3px;
+  }
+}
